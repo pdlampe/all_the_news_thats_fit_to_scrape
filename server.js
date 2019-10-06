@@ -63,6 +63,21 @@ app.get("/articles/:id", function (req, res) {
         });
 });
 
+app.post("/articles/:id", function (req, res) {
+
+    db.Note.create(req.body)
+        .then(function (dbNote) {
+            return db.Article.findOneAndUpdate({ _id: req.params.id }, { $push: { note: dbPopulate._id } }, { new: true });
+        })
+        .then(function (dbArticle) {
+            res.json(dbArticle);
+        })
+        .catch(function (err) {
+
+            res.json(err);
+        });
+});
+
 // Start the server
 app.listen(PORT, function () {
     console.log("App running on port " + PORT + "!");
