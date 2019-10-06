@@ -47,9 +47,19 @@ app.get("/scrape", function (req, res) {
                     console.log(err);
                 });
         });
-        res.send("Scrape Complete!");
+        res.send("Scrape Finished!");
     });
 });
+
+app.get("/articles", function (req, res) {
+    db.Article.find({})
+        .then(function (dbArticle) {
+            res.json(dbArticle);
+        })
+        .catch(function (err) {
+            res.json(err);
+        })
+})
 
 // Start the server
 app.listen(PORT, function () {
