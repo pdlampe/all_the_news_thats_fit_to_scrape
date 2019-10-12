@@ -1,0 +1,6 @@
+.jumbotron {    
+    background: url(/images/coffee_and_news.jpg);
+    background-position: center center;
+    color: white;
+    margin-top: 32px;
+}

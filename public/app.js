@@ -10,9 +10,9 @@ $.get("/api/articles", function (data, err) {
             .find("i")
             .removeClass(article.favorite ? "far" : "fas")
             .addClass(article.favorite ? "fas" : "far");
-        newsStory.find(".article-headline").text(article.headline);
-        newsStory.find(".article-category").text(article.category);
-        newsStory.find(".article-author").text(article.author);
+        newsStory.find(".articletitle").text(article.headline);
+        newsStory.find(".articleabout").text(article.category);
+        newsStory.find(".articleby").text(article.author);
         newsStory.find(".card-body").children(".btn-primary").attr("href", "https://www.nytimes.com/" + article.url);
         if (article.image) {
             newsStory.find("img").attr("src", article.image);
